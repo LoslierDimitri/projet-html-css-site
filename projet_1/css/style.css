@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    padding-top: 50px;
+}
+
+.full_width {
+    width: 100%;
+}
+
+.smaller_width {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.align_center_horizontal {
+    justify-content: center;
+}
+
+.align_center_vertical {
+    align-items: center;
+}
+
+.align_item_end {
+    align-items: flex-end;
+}
+
+.z_index_1 {
+    z-index: 1;
+}
+
+.z_index_2 {
+    z-index: 2;
+}
+
+nav {
+    height: 0px;
+    padding: 50px;
+}
+
+a {
+    text-decoration: none;
+}

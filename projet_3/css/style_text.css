@@ -1,0 +1,39 @@
+.font_style_title {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.font_style_text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.font_size_40 {
+    font-size: 40px;
+}
+
+.font_size_30 {
+    font-size: 30px;
+}
+
+.font_size_20 {
+    font-size: 20px;
+}
+
+.font_size_16 {
+    font-size: 16px;
+}
+
+.font_size_12 {
+    font-size: 12px;
+}
+
+.font_color_white {
+    color: white;
+}
+
+.font_color_black {
+    color: black;
+}
+
+.font_bold {
+    font-weight: bold;
+}

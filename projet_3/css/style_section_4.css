@@ -1,0 +1,21 @@
+.section_4_align_content_end {
+    height: 20%;
+    align-content: flex-end;
+}
+
+.section_4_image_decal {
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.section_4_height {
+    height: 50vh;
+}
+
+.section_4_padding_image_text {
+    padding-top: 50px;
+}
+
+.section_4_center_text {
+    text-align: center;
+}

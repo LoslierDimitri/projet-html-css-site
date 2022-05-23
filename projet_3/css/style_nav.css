@@ -1,0 +1,17 @@
+.nav {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav>div>ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav>div {
+    padding: 5px;
+}
+
+.nav>div>ul>li {
+    padding: 10px;
+}
