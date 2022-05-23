@@ -1,0 +1,116 @@
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.align_item_start {
+    align-content: flex-start;
+}
+
+.align_item_center {
+    align-content: center;
+}
+
+.align_item_end {
+    align-content: flex-end;
+}
+
+.justify_content_start {
+    justify-content: flex-start;
+}
+
+.justify_content_center {
+    justify-content: center;
+}
+
+.justify_content_end {
+    justify-content: flex-end;
+}
+
+.col_5 {
+    width: 5%;
+}
+
+.col_10 {
+    width: 10%;
+}
+
+.col_15 {
+    width: 15%;
+}
+
+.col_20 {
+    width: 20%;
+}
+
+.col_25 {
+    width: 25%;
+}
+
+.col_30 {
+    width: 30%;
+}
+
+.col_35 {
+    width: 35%;
+}
+
+.col_40 {
+    width: 40%;
+}
+
+.col_45 {
+    width: 45%;
+}
+
+.col_50 {
+    width: 50%;
+}
+
+.col_55 {
+    width: 55%;
+}
+
+.col_60 {
+    width: 60%;
+}
+
+.col_65 {
+    width: 65%;
+}
+
+.col_70 {
+    width: 70%;
+}
+
+.col_75 {
+    width: 75%;
+}
+
+.col_80 {
+    width: 80%;
+}
+
+.col_85 {
+    width: 85%;
+}
+
+.col_90 {
+    width: 90%;
+}
+
+.col_95 {
+    width: 95%;
+}
+
+.col_100 {
+    width: 100%;
+}

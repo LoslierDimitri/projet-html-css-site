@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+a,
+p,
+h1 {
+    text-decoration: none;
+}
+
+.w_100 {
+    width: 100%;
+}
+
+.test {
+    background-color: red;
+}
