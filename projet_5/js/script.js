@@ -29,39 +29,24 @@ function init() {
     }
     actual_play_ai = 0;
     player_win = 0;
-    //false_game();
     return_table();
     result_text();
 }
 
-function false_game() {
-    table[0] = 0;
-    table[1] = 1;
-    table[2] = 0;
-    table[3] = 2;
-    table[4] = 1;
-    table[5] = 0;
-    table[6] = 2;
-    table[7] = 2;
-    table[8] = 1;
-}
-
 function add(index, player) {
     if (player_win == 0) {
-        if (table[index] == 0) {
-            table[index] = player;
-            test_table(1);
-            if (player_win == 0) {
-                ai_play();
-                test_table(2);
-            }
-        }
+        add_index(index, player)
+        test_table(1);
+    }
+    if (player_win == 0) {
+        ai_play();
+        test_table(2);
     }
     return_table();
     result_text();
 }
 
-function add_ai(index, player) {
+function add_index(index, player) {
     if (table[index] == 0) {
         table[index] = player;
     }
@@ -80,7 +65,7 @@ function display_table(index) {
 }
 
 function ai_play() {
-    if (actual_play_ai <= number_play_ai) {
+    if (actual_play_ai < number_play_ai) {
         if (actual_play_ai == 0) {
             ai_play_normal();
         } else {
@@ -98,7 +83,7 @@ function ai_play_normal() {
         next_target = random(9);
         if (table[next_target] == 0) {
             target = next_target;
-            add_ai(target, 2);
+            add_index(target, 2);
         }
     }
 }
@@ -106,73 +91,55 @@ function ai_play_normal() {
 function ai_play_smart() {
     let can_play_smart = false;
 
-    if (table[0] == 1 && table[1] == 1) {
-        add_ai(2, 2);
+    if (table[0] == 1 && table[1] == 1 && table[2] == 0) {
+        add_index(2, 2);
+        can_play_smart = true;
+    } else if (table[1] == 1 && table[2] == 1 && table[0] == 0) {
+        add_index(0, 2);
+        can_play_smart = true;
+    } else if (table[3] == 1 && table[4] == 1 && table[5] == 0) {
+        add_index(5, 2);
+        can_play_smart = true;
+    } else if (table[4] == 1 && table[5] == 1 && table[3] == 0) {
+        add_index(3, 2);
+        can_play_smart = true;
+    } else if (table[6] == 1 && table[7] == 1 && table[8] == 0) {
+        add_index(8, 2);
+        can_play_smart = true;
+    } else if (table[7] == 1 && table[8] == 1 && table[6] == 0) {
+        add_index(6, 2);
+        can_play_smart = true;
+    } else if (table[0] == 1 && table[3] == 1 && table[6] == 0) {
+        add_index(6, 2);
+        can_play_smart = true;
+    } else if (table[3] == 1 && table[6] == 1 && table[0] == 0) {
+        add_index(0, 2);
+        can_play_smart = true;
+    } else if (table[1] == 1 && table[4] == 1 && table[7] == 0) {
+        add_index(7, 2);
+        can_play_smart = true;
+    } else if (table[4] == 1 && table[7] == 1 && table[1] == 0) {
+        add_index(1, 2);
+        can_play_smart = true;
+    } else if (table[2] == 1 && table[5] == 1 && table[8] == 0) {
+        add_index(8, 2);
+        can_play_smart = true;
+    } else if (table[5] == 1 && table[8] == 1 && table[2] == 0) {
+        add_index(2, 2);
+        can_play_smart = true;
+    } else if (table[0] == 1 && table[4] == 1 && table[8] == 0) {
+        add_index(8, 2);
+        can_play_smart = true;
+    } else if (table[4] == 1 && table[8] == 1 && table[0] == 0) {
+        add_index(0, 2);
+        can_play_smart = true;
+    } else if (table[2] == 1 && table[4] == 1 && table[6] == 0) {
+        add_index(6, 2);
+        can_play_smart = true;
+    } else if (table[4] == 1 && table[6] == 1 && table[2] == 0) {
+        add_index(2, 2);
         can_play_smart = true;
     }
-    if (table[1] == 1 && table[2] == 1) {
-        add_ai(0, 2);
-        can_play_smart = true;
-    }
-    if (table[3] == 1 && table[4] == 1) {
-        add_ai(5, 2);
-        can_play_smart = true;
-    }
-    if (table[4] == 1 && table[5] == 1) {
-        add_ai(3, 2);
-        can_play_smart = true;
-    }
-    if (table[6] == 1 && table[7] == 1) {
-        add_ai(8, 2);
-        can_play_smart = true;
-    }
-    if (table[7] == 1 && table[8] == 1) {
-        add_ai(6, 2);
-        can_play_smart = true;
-    }
-
-    if (table[0] == 1 && table[3] == 1) {
-        add_ai(6, 2);
-        can_play_smart = true;
-    }
-    if (table[3] == 1 && table[6] == 1) {
-        add_ai(0, 2);
-        can_play_smart = true;
-    }
-    if (table[1] == 1 && table[4] == 1) {
-        add_ai(7, 2);
-        can_play_smart = true;
-    }
-    if (table[4] == 1 && table[7] == 1) {
-        add_ai(1, 2);
-        can_play_smart = true;
-    }
-    if (table[2] == 1 && table[5] == 1) {
-        add_ai(8, 2);
-        can_play_smart = true;
-    }
-    if (table[5] == 1 && table[8] == 1) {
-        add_ai(2, 2);
-        can_play_smart = true;
-    }
-
-    if (table[0] == 1 && table[4] == 1) {
-        add_ai(8, 2);
-        can_play_smart = true;
-    }
-    if (table[4] == 1 && table[8] == 1) {
-        add_ai(0, 2);
-        can_play_smart = true;
-    }
-    if (table[2] == 1 && table[4] == 1) {
-        add_ai(6, 2);
-        can_play_smart = true;
-    }
-    if (table[4] == 1 && table[6] == 1) {
-        add_ai(2, 2);
-        can_play_smart = true;
-    }
-
     if (can_play_smart == false) {
         ai_play_normal();
     }
@@ -198,59 +165,17 @@ function return_table() {
 
     result += "<table>";
 
-    result += "<tr>";
-    result += "<td>";
-    result += "<button type='button' onclick='add(0, 1)'>";
-    result += display_table(0);
-    result += "</button>";
-    result += "</td>";
-    result += "<td>";
-    result += "<button type='button' onclick='add(1, 1)'>";
-    result += display_table(1);
-    result += "</button>";
-    result += "</td>";
-    result += "<td>";
-    result += "<button type='button' onclick='add(2, 1)'>";
-    result += display_table(2);
-    result += "</button>";
-    result += "</td>";
-    result += "</tr>";
-
-    result += "<tr>";
-    result += "<td>";
-    result += "<button type='button' onclick='add(3, 1)'>";
-    result += display_table(3);
-    result += "</button>";
-    result += "</td>";
-    result += "<td>";
-    result += "<button type='button' onclick='add(4, 1)'>";
-    result += display_table(4);
-    result += "</button>";
-    result += "</td>";
-    result += "<td>";
-    result += "<button type='button' onclick='add(5, 1)'>";
-    result += display_table(5);
-    result += "</button>";
-    result += "</td>";
-    result += "</tr>";
-
-    result += "<tr>";
-    result += "<td>";
-    result += "<button type='button' onclick='add(6, 1)'>";
-    result += display_table(6);
-    result += "</button>";
-    result += "</td>";
-    result += "<td>";
-    result += "<button type='button' onclick='add(7, 1)'>";
-    result += display_table(7);
-    result += "</button>";
-    result += "</td>";
-    result += "<td>";
-    result += "<button type='button' onclick='add(8, 1)'>";
-    result += display_table(8);
-    result += "</button>";
-    result += "</td>";
-    result += "</tr>";
+    for (let i = 0; i < 3; i++) {
+        result += "<tr>";
+        for (let j = 0; j < 3; j++) {
+            result += "<td>";
+            result += "<button type='button' onclick='add(" + ((i * 3) + j) + ", 1)'>";
+            result += display_table((i * 3) + j);
+            result += "</button>";
+            result += "</td>";
+        }
+        result += "</tr>";
+    }
 
     result += "</table>";
 
@@ -260,11 +185,8 @@ function return_table() {
 function result_text() {
     let result_text = "";
 
-    if (player_win == 1) {
-        result_text += "player 1 win";
-    }
-    if (player_win == 2) {
-        result_text += "player 2 win";
+    if (player_win == 1 || player_win == 2) {
+        result_text += "player " + player_win + " win";
     }
 
     document.getElementById('result_text').innerHTML = result_text;
